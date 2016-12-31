@@ -2,7 +2,7 @@
     "name": "chelout/date",
     "description": "A date library to help you work with dates in different languages. Fork jenssegers/date",
     "keywords": ["laravel", "date", "time", "datetime", "i18n", "translation", "carbon"],
-    "homepage": "https://github.com/jenssegers/date",
+    "homepage": "https://github.com/chelout/date",
     "license" : "MIT",
     "authors": [
         {
@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Jenssegers\\Date\\": "src/"
+            "Chelout\\Date\\": "src/"
         }
     },
     "extra": {
