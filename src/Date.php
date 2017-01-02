@@ -243,7 +243,16 @@ class Date extends Carbon
 
                 // Short notations.
                 if (in_array($character, ['D', 'M'])) {
-                    $translated = mb_substr($translated, 0, 3);
+                    $toTranslate    = strtolower($original);
+                    $sortTranslated = $lang->trans($toTranslate);
+
+                    if ($sortTranslated === $toTranslate) {
+                        // use the first 3 characters as short notation
+                        $translated = mb_substr($translated, 0, 3);
+                    } else {
+                        // use translated version
+                        $translated = $sortTranslated;
+                    }
                 }
 
                 // Add to replace list.
@@ -437,7 +446,7 @@ class Date extends Carbon
         }
 
         // All the language file items we can translate.
-        $keys = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+        $keys = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'jan', 'feb', 'mar', 'apr', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
         // Get all the language lines of the current locale.
         $all = static::getTranslator()->getCatalogue()->all();
